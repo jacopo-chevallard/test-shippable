@@ -1,10 +1,10 @@
-language: none
+language: C
 
 
 integrations:                              
     hub:
-      - integrationName:Docker 
-        type:docker                        
+      - integrationName: Docker
+        type: docker                        
 
 branches:
   only:
