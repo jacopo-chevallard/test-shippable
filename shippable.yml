@@ -3,7 +3,7 @@ language: none
 
 integrations:                              
     hub:
-      - integrationName: Docker
+      - integrationName: DockerIntegration
         type: docker                        
 
 branches:
