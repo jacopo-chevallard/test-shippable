@@ -1,5 +1,11 @@
 language: none
 
+
+integrations:                              
+    hub:
+      - integrationName: Docker
+        type: docker                        
+
 branches:
   only:
     - master
@@ -8,8 +14,13 @@ compiler:
   - gcc
 
 build:
-  pre_ci:
-    - echo 'true'
+
+ pre_ci_boot:
+    image_name: eclake/beaglebaseimage
+    image_tag: 
+    pull: true                              #required, false if image already built or pulled in pre_ci
+    #options:
+    #env:
 
   ci:
     - mkdir -p build
