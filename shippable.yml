@@ -1,0 +1,22 @@
+language: none
+
+branches:
+  only:
+    - master
+
+compiler:
+  - gcc
+
+build:
+  pre_ci:
+    - echo 'true'
+
+  ci:
+    - mkdir -p build
+    - cd build
+    - cmake -DCMAKE_Fortran_COMPILER=gfortran ..
+    - make
+    - ./hello_world
+
+  post_ci:
+    - echo "true"
