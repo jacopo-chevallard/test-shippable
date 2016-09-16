@@ -1,9 +1,9 @@
-language: c
+language: none
 
 
 integrations:                              
     hub:
-      - integrationName: Docker
+      - integrationName: Docker-eclake
         type: docker                        
 
 branches:
