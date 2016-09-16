@@ -4,7 +4,7 @@ language: none
 integrations:                              
     hub:
       - integrationName:Docker 
-        type: docker                        
+        type:docker                        
 
 branches:
   only:
