@@ -3,7 +3,7 @@ language: none
 
 integrations:                              
     hub:
-      - integrationName: Docker-eclake
+      - integrationName: Docker-jc
         type: docker                        
 
 branches:
@@ -16,8 +16,8 @@ compiler:
 build:
 
   pre_ci_boot:
-    image_name: eclake/beaglebaseimage
-    image_tag: <none>
+    image_name: jacopochevallard/beaglebaseimage
+    image_tag: 1.0
     pull: true                              #required, false if image already built or pulled in pre_ci
     #options:
     #env:
