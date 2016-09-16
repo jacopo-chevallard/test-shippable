@@ -17,7 +17,7 @@ build:
 
   pre_ci_boot:
     image_name: eclake/beaglebaseimage
-    image_tag: 
+    #image_tag: 
     pull: true                              #required, false if image already built or pulled in pre_ci
     #options:
     #env:
