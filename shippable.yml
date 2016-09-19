@@ -17,7 +17,7 @@ build:
 
   pre_ci_boot:
     image_name: jacopochevallard/beaglebaseimage
-    image_tag: "1.1"
+    image_tag: "1.2"
     pull: true                              #required, false if image already built or pulled in pre_ci
     #options:
     #env:
