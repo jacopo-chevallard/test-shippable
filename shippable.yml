@@ -31,15 +31,15 @@ build:
     - docker build -t jacopochevallard/hello_world:1.0 .
 
   ci:
-    - rm -rf $CMAKE_MACROS
-    - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
-    - echo $CMAKE_MACROS
-    - ls $CMAKE_MACROS
-    - mkdir -p build
-    - cd build
-    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
-    - make
-    - ./hello_world
+    #- rm -rf $CMAKE_MACROS
+    #- git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
+    #- echo $CMAKE_MACROS
+    #- ls $CMAKE_MACROS
+    #- mkdir -p build
+    #- cd build
+    #- cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
+    #- make
+    #- ./hello_world
 
   on_success:
     - docker push jacopochevallard/hello_world:1.0
