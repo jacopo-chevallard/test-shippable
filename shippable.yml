@@ -19,27 +19,29 @@ env:
 
 build:
 
-  #pre_ci_boot:
-  #  image_name: jacopochevallard/beaglebaseimage
-  #  image_tag: "1.3"
-  #  pull: true                              #required, false if image already built or pulled in pre_ci
+  pre_ci_boot:
+    image_name: jacopochevallard/beaglebaseimage
+    image_tag: "1.3"
+    pull: true                              #required, false if image already built or pulled in pre_ci
     #options:
     #env:
 
   # build a container as part of workflow
-  pre_ci:
-    - docker build -t jacopochevallard/hello_world:1.0 .
+  #pre_ci:
+  #  - docker build -t jacopochevallard/hello_world:1.0 .
 
   ci:
-    #- rm -rf $CMAKE_MACROS
-    #- git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
-    #- echo $CMAKE_MACROS
-    #- ls $CMAKE_MACROS
-    #- mkdir -p build
-    #- cd build
-    #- cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
-    #- make
+    - rm -rf $CMAKE_MACROS
+    - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
+    - echo $CMAKE_MACROS
+    - ls $CMAKE_MACROS
+    - mkdir -p build
+    - cd build
+    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
+    - make
     #- ./hello_world
 
-  on_success:
-    - docker push jacopochevallard/hello_world:1.0
+commit_container: jacopochevallard/hello_world:1.0
+
+  #on_success:
+  #  - docker push jacopochevallard/hello_world:1.0
