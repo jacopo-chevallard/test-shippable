@@ -27,8 +27,8 @@ build:
     #env:
 
   pre_ci:
-    - rm -rf cmake-macros
-    - git clone https://github.com/jacopo-chevallard/cmake-macros.git
+    - rm -rf $CMAKE_MACROS
+    - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
     - echo $CMAKE_MACROS
 
   ci:
