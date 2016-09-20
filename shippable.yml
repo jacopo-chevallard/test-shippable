@@ -10,8 +10,8 @@ branches:
   only:
     - master
 
-compiler:
-  - gcc
+#compiler:
+#  - gcc
 
 # environment variable
 env:
@@ -19,10 +19,10 @@ env:
 
 build:
 
-  pre_ci_boot:
-    image_name: jacopochevallard/beaglebaseimage
-    image_tag: "1.3"
-    pull: true                              #required, false if image already built or pulled in pre_ci
+  #pre_ci_boot:
+  #  image_name: jacopochevallard/beaglebaseimage
+  #  image_tag: "1.3"
+  #  pull: true                              #required, false if image already built or pulled in pre_ci
     #options:
     #env:
 

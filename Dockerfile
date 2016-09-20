@@ -1,3 +1,5 @@
+FROM jacopochevallard/beaglebaseimage:1.3
+
 ENV CMAKE_MACROS $HOME/cmake-macros
 
 RUN git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
