@@ -38,6 +38,5 @@ build:
     - make
     - ./hello_world
 
-  post_ci:
-    - echo "true"
+  on_success:
     - docker push jacopochevallard/hello_world:1.0
