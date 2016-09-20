@@ -22,6 +22,11 @@ build:
     #options:
     #env:
 
+  pre_ci:
+    - git clone https://github.com/jacopo-chevallard/cmake-macros.git
+    - env: CMAKE_MACROS=$HOME/cmake-macros
+    - echo $CMAKE_MACROS
+
   ci:
     - mkdir -p build
     - cd build
