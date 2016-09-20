@@ -44,7 +44,7 @@ build:
   post_ci:
     - cd ..
     - GIT_TAG=$(git tag --points-at HEAD)
-    - echo "GIT_TAG: $GIT_TAG"
+    - echo GIT_TAG $GIT_TAG
     - docker build -t jacopochevallard/hello_world:$GIT_TAG .
     - docker push jacopochevallard/hello_world:$GIT_TAG
 
