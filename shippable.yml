@@ -26,6 +26,9 @@ build:
     #options:
     #env:
 
+  # build a container as part of workflow
+  pre_ci:
+    - docker build -t jacopochevallard/hello_world:1.0 .
 
   ci:
     - rm -rf $CMAKE_MACROS
