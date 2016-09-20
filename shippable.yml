@@ -40,3 +40,4 @@ build:
 
   post_ci:
     - echo "true"
+    - docker push jacopochevallard/hello_world:1.0
