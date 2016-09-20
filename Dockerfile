@@ -4,4 +4,4 @@ FROM jacopochevallard/beaglebaseimage:1.3
 COPY . /data
 WORKDIR /data
 
-CMD /data/hello_world
+CMD /data/build/hello_world
