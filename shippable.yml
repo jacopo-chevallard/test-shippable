@@ -13,6 +13,10 @@ branches:
 compiler:
   - gcc
 
+# environment variable
+env:
+  - CMAKE_MACROS=$HOME/cmake-macros
+
 build:
 
   pre_ci_boot:
@@ -24,7 +28,6 @@ build:
 
   pre_ci:
     - git clone https://github.com/jacopo-chevallard/cmake-macros.git
-    - env: CMAKE_MACROS=$HOME/cmake-macros
     - echo $CMAKE_MACROS
 
   ci:
