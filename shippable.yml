@@ -42,6 +42,7 @@ build:
     #- ./hello_world
     
   post_ci:
+    - docker build -t jacopochevallard/hello_world:1.0 .
     - docker push jacopochevallard/hello_world:1.0
 
 #commit_container: jacopochevallard/hello_world:1.0
