@@ -5,6 +5,7 @@ COPY . /data
 WORKDIR /data
 
 RUN cd /data/build
+RUN ls 
 
 RUN make install
 
