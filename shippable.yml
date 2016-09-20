@@ -40,8 +40,9 @@ build:
     - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
     - make
     #- ./hello_world
+    
+  post_ci:
+    - docker push jacopochevallard/hello_world:1.0
 
-commit_container: jacopochevallard/hello_world:1.0
+#commit_container: jacopochevallard/hello_world:1.0
 
-  #on_success:
-  #  - docker push jacopochevallard/hello_world:1.0
