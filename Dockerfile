@@ -1,6 +1,11 @@
 FROM jacopochevallard/beaglebaseimage:1.3
 
-ENV CMAKE_MACROS $HOME/cmake-macros
+# mount the current project workspace under /project inside the container
+ADD . /project
+
+WORKDIR /project
+
+ENV CMAKE_MACROS /project/cmake-macros
 
 RUN git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
 
