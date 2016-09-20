@@ -4,7 +4,7 @@ FROM jacopochevallard/beaglebaseimage:1.3
 COPY . /data
 WORKDIR /data
 
-cd /data/build
+RUN cd /data/build
 
 RUN make install
 
