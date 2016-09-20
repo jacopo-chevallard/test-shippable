@@ -26,16 +26,14 @@ build:
     #options:
     #env:
 
-  pre_ci:
+
+  ci:
     - rm -rf $CMAKE_MACROS
     - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
     - echo $CMAKE_MACROS
-
-  ci:
+    - ls $CMAKE_MACROS
     - mkdir -p build
     - cd build
-    - echo $CMAKE_MACROS
-    - ls $CMAKE_MACROS
     - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran ..
     - make
     - ./hello_world
