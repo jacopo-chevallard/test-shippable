@@ -6,9 +6,9 @@ integrations:
       - integrationName: Docker-jc
         type: docker                        
 
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 
 #compiler:
 #  - gcc
