@@ -52,9 +52,10 @@ build:
     - ls $HOME/src/github.com/jacopo-chevallard/
 
     - cd $INSTALL_DIR
+    - echo $HOME/src/github.com/$REPO_NAME
 
     # If the commit is tagged, then proceed to build the Docker container
-    - if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME . ; fi
+    - if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile  . ; fi
 
     # And push the container to DockerHub
     - if [ "$IS_RELEASE" == "true" ] ; then docker push jacopochevallard/hello_world:$RELEASE_NAME ; fi
