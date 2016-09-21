@@ -58,8 +58,8 @@ build:
     - echo $IS_GIT_TAG $GIT_TAG_NAME
 
     # If the commit is tagged, then proceed to build the Docker container
-    #- if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile  . ; fi
-    - if [ "$IS_GIT_TAG" == "true" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile  . ; fi
+    #- if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile ; fi
+    - if [ "$IS_GIT_TAG" == "true" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile  ; fi
 
 
     # And push the container to DockerHub
