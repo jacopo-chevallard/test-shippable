@@ -49,9 +49,8 @@ build:
     - pwd
     - ls
 
-    - cd $HOME
-    - pwd
-    - ls
+    - ls $HOME
+    - ls $HOME/src
 
     # If the commit is tagged, then proceed to build the Docker container
     - if [ "$GIT_TAG" != "" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG . ; fi
