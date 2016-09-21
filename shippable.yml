@@ -51,6 +51,8 @@ build:
 
     - ls $HOME
     - ls $HOME/src
+    - ls $HOME/src/github.com
+    - ls $HOME/src/github.com/jacopo-chevallard/
 
     # If the commit is tagged, then proceed to build the Docker container
     - if [ "$GIT_TAG" != "" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG . ; fi
