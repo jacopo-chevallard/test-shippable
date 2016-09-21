@@ -46,6 +46,11 @@ build:
     - GIT_TAG=$(git tag --points-at HEAD)
     - echo GIT_TAG $GIT_TAG
 
+    - pwd
+    - ls
+
+    - cd $HOME
+    - pwd
     - ls
 
     # If the commit is tagged, then proceed to build the Docker container
