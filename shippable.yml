@@ -16,6 +16,7 @@ integrations:
 # environment variable
 env:
   - CMAKE_MACROS=$HOME/cmake-macros
+  - INSTALL_DIR=$HOME/install
 
 build:
 
@@ -35,7 +36,7 @@ build:
     - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
     - mkdir -p build
     - cd build
-    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran -DCMAKE_INSTALL_PREFIX=$HOME  -DCMAKE_NO_DEFAULT_PATH=TRUE ..
+    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR  -DCMAKE_NO_DEFAULT_PATH=TRUE ..
     - make install
     #- ./hello_world
     
@@ -53,6 +54,8 @@ build:
     - ls $HOME/src
     - ls $HOME/src/github.com
     - ls $HOME/src/github.com/jacopo-chevallard/
+
+    - cd $INSTALL_DIR
 
     # If the commit is tagged, then proceed to build the Docker container
     - if [ "$GIT_TAG" != "" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG . ; fi

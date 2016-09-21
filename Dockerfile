@@ -5,7 +5,7 @@ COPY . /data
 WORKDIR /data
 
 RUN pwd && ls
-RUN rm -rf /data/src /data/cmake-macros
+# RUN rm -rf /data/src /data/cmake-macros
 
 CMD /data/bin/hello_world
 
