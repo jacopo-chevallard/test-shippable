@@ -6,4 +6,3 @@ WORKDIR /data
 
 CMD /data/build/hello_world
 
-

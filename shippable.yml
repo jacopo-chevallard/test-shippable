@@ -43,10 +43,16 @@ build:
     
   post_ci:
     - cd ..
+
+    # Extract tag number from git commit
     - GIT_TAG=$(git tag --points-at HEAD)
     - echo GIT_TAG $GIT_TAG
-    - docker build -t jacopochevallard/hello_world:$GIT_TAG .
-    - docker push jacopochevallard/hello_world:$GIT_TAG
+
+    # If the commit is tagged, then proceed to build the Docker container
+    - if [ "$GIT_TAG" != "" ] ; then docker build -t jacopochevallard/hello_world:$GIT_TAG . ; fi
+
+    # And push the container to DockerHub
+    - if [ "$GIT_TAG" != "" ] ; then docker push jacopochevallard/hello_world:$GIT_TAG ; fi
 
 #commit_container: jacopochevallard/hello_world:1.0
 
