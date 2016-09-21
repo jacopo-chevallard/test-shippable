@@ -54,7 +54,8 @@ build:
     - cd $INSTALL_DIR
     - pwd
     - echo $SHIPPABLE_BUILD_DIR
-    - echo $IS_RELEASE
+    - echo $IS_RELEASE $RELEASE_NAME
+    - echo $IS_GIT_TAG $GIT_TAG_NAME
 
     # If the commit is tagged, then proceed to build the Docker container
     - if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile  . ; fi
