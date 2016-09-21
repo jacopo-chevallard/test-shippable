@@ -1,7 +1,7 @@
 FROM jacopochevallard/beaglebaseimage:1.3
 
 # mount the current project workspace under /project inside the container
-COPY root /data
+COPY /root /data
 WORKDIR /data
 
 RUN rm -rf /data/src /data/cmake-macros
