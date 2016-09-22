@@ -49,23 +49,23 @@ elseif ( CMAKE_Fortran_COMPILER_ID STREQUAL Intel )
   include( Intel_Fortran_Flags )
 endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
-libfind_detect ( ASTROFORTRAN FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include FIND_LIBRARY astrofortran LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
+libfind_detect ( MCFOR FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include FIND_LIBRARY astrofortran LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
 
-if ( NOT ASTROFORTRAN_FOUND )
-  include( External_ASTROFORTRAN )
-endif ( NOTASTROFORTRAN_FOUND )
+if ( NOT MCFOR_FOUND )
+  include( External_MCFOR )
+endif ( NOTMCFOR_FOUND )
 
 # *******************************************
 # ************  LIBRARY *******************
 # *******************************************
 
 include_directories ( 
-  ${ASTROFORTRAN_INCLUDE_DIR}
+  ${MCFOR_INCLUDE_DIR}
   )
 
 set ( LIBRARIES_LIST
-  ${ASTROFORTRAN_LIBRARIES}
+  ${MCFOR_LIBRARIES}
   )
 
 # Set library name
