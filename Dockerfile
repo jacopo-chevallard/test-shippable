@@ -4,7 +4,6 @@ FROM jacopochevallard/beaglebaseimage:1.3
 COPY . /data
 WORKDIR /data
 
-RUN pwd && ls
 RUN rm -rf /data/src /data/cmake-macros
 
 CMD /data/install/bin/hello_world

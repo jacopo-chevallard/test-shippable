@@ -40,22 +40,7 @@ build:
     #- ./hello_world
     
   post_ci:
-    - cd ..
-
-    # Extract tag number from git commit
-    - pwd
-    - ls
-
-    - ls $HOME
-    - ls $HOME/src
-    - ls $HOME/src/github.com
-    - ls $HOME/src/github.com/jacopo-chevallard/
-
     - cd $HOME
-    - pwd
-    - echo $SHIPPABLE_BUILD_DIR
-    - echo $IS_RELEASE $RELEASE_NAME
-    - echo $IS_GIT_TAG $GIT_TAG_NAME
 
     # If the commit is tagged, then proceed to build the Docker container
     #- if [ "$IS_RELEASE" == "true" ] ; then docker build -t jacopochevallard/hello_world:$RELEASE_NAME -f $SHIPPABLE_BUILD_DIR/Dockerfile ; fi
@@ -65,6 +50,4 @@ build:
     # And push the container to DockerHub
     #- if [ "$IS_RELEASE" == "true" ] ; then docker push jacopochevallard/hello_world:$RELEASE_NAME ; fi
     - if [ "$IS_GIT_TAG" == "true" ] ; then docker push jacopochevallard/hello_world:$GIT_TAG_NAME ; fi
-
-#commit_container: jacopochevallard/hello_world:1.0
 
