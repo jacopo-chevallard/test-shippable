@@ -35,7 +35,7 @@ build:
     - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
     - mkdir -p build
     - cd build
-    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR  -DCMAKE_NO_DEFAULT_PATH=TRUE  -DCMAKE_VERBOSE_MAKEFILE=ON ..
+    - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DSHIPPABLE=ON -DCMAKE_NO_DEFAULT_PATH=TRUE  -DCMAKE_VERBOSE_MAKEFILE=ON ..
     - make VERBOSE=1 install
     #- ./hello_world
     
