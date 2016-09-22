@@ -35,10 +35,23 @@ elseif ( CMAKE_Fortran_COMPILER_ID STREQUAL Intel )
   include( Intel_Fortran_Flags )
 endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
+libfind_detect ( ASTROFORTRAN FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include FIND_LIBRARY astrofortran LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
 # *******************************************
 # ************  LIBRARY *******************
 # *******************************************
+
+include_directories ( 
+  ${ASTROFORTRAN_INCLUDE_DIR}
+  )
+
+link_directories ( 
+  ${ASTROFORTRAN_LIBRARIES_DIR}
+  )
+
+set ( LIBRARIES_LIST
+  ${ASTROFORTRAN_LIBRARIES}
+  )
 
 # Set library name
 set ( PROGRAM_NAME hello_world )
