@@ -50,10 +50,6 @@ include_directories (
   ${ASTROFORTRAN_INCLUDE_DIR}
   )
 
-link_directories ( 
-  ${ASTROFORTRAN_LIBRARIES_DIR}
-  )
-
 set ( LIBRARIES_LIST
   ${ASTROFORTRAN_LIBRARIES}
   )
