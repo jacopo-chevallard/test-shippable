@@ -16,6 +16,11 @@ set ( CMAKE_VERBOSE_MAKEFILE OFF CACHE INTERNAL "verbose cmake output" )
 LIST ( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" )
 LIST (APPEND CMAKE_MODULE_PATH $ENV{CMAKE_MACROS})
 
+# Set flag for Shippable CD/CI
+if (SHIPPABLE)
+  set (SHIPPABLE ON CACHE INTERNAL "Flag for Shippable CD/CI")
+endif (SHIPPABLE)
+
 include ( ExternalProject )
 include( libFindGeneral )
 
