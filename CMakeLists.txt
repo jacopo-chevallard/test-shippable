@@ -27,6 +27,20 @@ endif ( USE_MPI )
 # RPATH configuration
 include ( General_rpath_config )
 
+# Whether you build a static or shared library
+set(LIBRARY_TYPE SHARED)
+if (CMAKE_LIBRARY_TYPE)
+  set(LIBRARY_TYPE ${CMAKE_LIBRARY_TYPE})
+endif (CMAKE_LIBRARY_TYPE)
+
+if (${LIBRARY_TYPE} STREQUAL "STATIC")
+  set (CMAKE_LIBRARY_PREFIX ${CMAKE_STATIC_LIBRARY_PREFIX} CACHE INTERNAL "Prefix for CMake libraries")
+  set (CMAKE_LIBRARY_SUFFIX ${CMAKE_STATIC_LIBRARY_SUFFIX} CACHE INTERNAL "Suffix for CMake libraries")
+else if (${LIBRARY_TYPE} STREQUAL "SHARED")
+  set (CMAKE_LIBRARY_PREFIX ${CMAKE_SHARED_LIBRARY_PREFIX} CACHE INTERNAL "Prefix for CMake libraries")
+  set (CMAKE_LIBRARY_SUFFIX ${CMAKE_SHARED_LIBRARY_SUFFIX} CACHE INTERNAL "Suffix for CMake libraries")
+endif (${LIBRARY_TYPE} STREQUAL "STATIC")
+
 
 # Check that when using GNU Fortran the free form flag is passed
 if ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
