@@ -37,6 +37,11 @@ endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
 libfind_detect ( ASTROFORTRAN FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include FIND_LIBRARY astrofortran LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
+
+if ( NOT ASTROFORTRAN_FOUND )
+  include( External_ASTROFORTRAN )
+endif ( NOTASTROFORTRAN_FOUND )
+
 # *******************************************
 # ************  LIBRARY *******************
 # *******************************************
