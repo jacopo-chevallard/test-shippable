@@ -59,7 +59,7 @@ libfind_detect ( MCFOR FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_P
 
 if ( NOT MCFOR_FOUND )
   include( external_mcfor )
-endif ( NOTMCFOR_FOUND )
+endif ( NOT MCFOR_FOUND )
 
 libfind_detect ( CFITSIO FIND_PATH fitsio.h INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/cfitsio FIND_LIBRARY cfitsio LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
