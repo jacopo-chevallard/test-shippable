@@ -1,6 +1,5 @@
 language: none
 
-
 integrations:                              
     hub:
       - integrationName: Docker-jc
@@ -15,7 +14,7 @@ integrations:
 
 # environment variable
 env:
-  - CMAKE_MACROS=$HOME/cmake-macros INSTALL_DIR=$HOME/install
+  - CMAKE_MACROS=$HOME/cmake-macros CMAKE_DEPENDENCIES=$HOME/cmake-dependencies INSTALL_DIR=$HOME/install
 
 build:
 
@@ -33,6 +32,8 @@ build:
   ci:
     - rm -rf $CMAKE_MACROS
     - git clone https://github.com/jacopo-chevallard/cmake-macros.git $CMAKE_MACROS
+    - rm -rf $CMAKE_DEPENDENCIES
+    - git clone https://github.com/jacopo-chevallard/cmake-dependencies.git $CMAKE_DEPENDENCIES
     - mkdir -p build
     - cd build
     - cmake -DCMAKE_Fortran_COMPILER=/usr/bin/gfortran -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DSHIPPABLE=ON -DCMAKE_NO_DEFAULT_PATH=TRUE  -DCMAKE_VERBOSE_MAKEFILE=ON ..

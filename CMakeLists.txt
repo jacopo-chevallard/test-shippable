@@ -15,6 +15,7 @@ set ( CMAKE_VERBOSE_MAKEFILE OFF CACHE INTERNAL "verbose cmake output" )
 # Set the CMAKE_MODULE_PATH
 LIST ( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" )
 LIST (APPEND CMAKE_MODULE_PATH $ENV{CMAKE_MACROS})
+LIST (APPEND CMAKE_MODULE_PATH $ENV{CMAKE_MACROS}/external)
 
 # Set flag for Shippable CD/CI
 if (SHIPPABLE)
@@ -54,12 +55,17 @@ elseif ( CMAKE_Fortran_COMPILER_ID STREQUAL Intel )
   include( Intel_Fortran_Flags )
 endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
-libfind_detect ( MCFOR FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include FIND_LIBRARY astrofortran LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
-
+libfind_detect ( MCFOR FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/mcfor FIND_LIBRARY mcfor LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
 if ( NOT MCFOR_FOUND )
-  include( External_MCFOR )
+  include( external_mcfor )
 endif ( NOTMCFOR_FOUND )
+
+libfind_detect ( CFITSIO FIND_PATH fitsio.h INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/cfitsio FIND_LIBRARY cfitsio LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
+
+if ( NOT CFITSIO_FOUND )
+  include( external_cfitsio )
+endif ( NOT CFITSIO_FOUND )
 
 # *******************************************
 # ************  LIBRARY *******************
@@ -67,10 +73,12 @@ endif ( NOTMCFOR_FOUND )
 
 include_directories ( 
   ${MCFOR_INCLUDE_DIR}
+  ${CFITSIO_INCLUDE_DIR}
   )
 
 set ( LIBRARIES_LIST
   ${MCFOR_LIBRARIES}
+  ${CFITSIO_LIBRARIES}
   )
 
 # Set library name
