@@ -55,12 +55,6 @@ elseif ( CMAKE_Fortran_COMPILER_ID STREQUAL Intel )
   include( Intel_Fortran_Flags )
 endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
-libfind_detect ( MCFOR FIND_PATH lib_checking.mod INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/mcfor FIND_LIBRARY mcfor LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
-
-if ( NOT MCFOR_FOUND )
-  include( external_mcfor )
-endif ( NOT MCFOR_FOUND )
-
 libfind_detect ( CFITSIO FIND_PATH fitsio.h INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/cfitsio FIND_LIBRARY cfitsio LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
 if ( NOT CFITSIO_FOUND )
