@@ -57,6 +57,10 @@ endif ( CMAKE_Fortran_COMPILER_ID STREQUAL GNU )
 
 libfind_detect ( CFITSIO FIND_PATH fitsio.h INCLUDE_DIRS ${CMAKE_INSTALL_PREFIX}/include/cfitsio FIND_LIBRARY cfitsio LIBRARY_DIRS ${CMAKE_INSTALL_PREFIX}/lib NO_DEFAULT_PATH ${CMAKE_NO_DEFAULT_PATH} )
 
+libfind_detect ( LAPACK FIND_LIBRARY lapack )
+
+libfind_detect ( BLAS FIND_LIBRARY blas )
+
 if ( NOT CFITSIO_FOUND )
   include( external_cfitsio )
 endif ( NOT CFITSIO_FOUND )
@@ -73,6 +77,8 @@ include_directories (
 set ( LIBRARIES_LIST
   ${MCFOR_LIBRARIES}
   ${CFITSIO_LIBRARIES}
+  ${LAPACK_LIBRARIES}
+  ${BLAS_LIBRARIES}
   )
 
 # Set library name
